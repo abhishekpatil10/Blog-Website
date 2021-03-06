@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <header>
+        <h2 style="font-family: Roboto;text-align:center;margin-top: 20px;">
+            BLOG-POST</h2>
+      </header>
+      <hr>
+      <form action="/add" method="POST">
+        <div class="text-center">
+            <input type="text" placeholder="Write your name" name = "user" size="64"
+            style="margin-top: 20px;height: 40px;"><br>
+        <textarea type="text" name="post" placeholder="Write Blog" 
+         style="margin-top: 20px;height: 40px;width: 35.5%;"></textarea><br>
+        <button type="submit" class="btn btn-primary" style="text-align: center;margin-left: 20px;margin-top: 10px">POST</button></div></form>
+    <hr>
+    {% for content in content %}
+    <div style="text-align: center;background-color: coral;margin-left: 20%;margin-right: 20%">
+        
+        <h3 style="margin-top: 15px;">
+            {{ content.user }}
+        </h3>
+        <h4>
+            {{ content.post }}
+    </h4>
+    <button class="btn btn-dark" style="margin-bottom: 20px;margin-top: 10px;"><a href="/delete/{{ content.user }}" style="text-decoration: none;">DELETE</button>
+    </div>
+    {% endfor %}
+    <hr>
+</body>
+</html>
